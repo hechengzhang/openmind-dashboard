@@ -1,0 +1,24 @@
+@use "sass:math";
+
+@mixin blur($x) {
+  backdrop-filter: blur(#{$x});
+  -webkit-backdrop-filter: blur(#{$x});
+}
+
+@mixin hideScrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+$primary-color: #181C1F;
+$blue-color: #246BEE;
+$error-color: #E63946;
+$secondary-color: #606060;
+$border-color: #E1E4EA;

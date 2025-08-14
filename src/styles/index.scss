@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './utils.scss';
+@import './normalize.scss';
+@import './antd.scss';
+@import './flex.scss';
+@import './common.scss';

@@ -1,0 +1,174 @@
+@import './utils.scss';
+
+body {
+  .ant-popover {
+    .ant-popover-inner {
+      padding: 8px;
+      border-radius: 20px;
+    }
+  }
+
+  .ant-modal {
+    .ant-modal-content {
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .ant-modal-header {
+      margin-bottom: 10px;
+    }
+
+    .ant-modal-title {
+      color: $primary-color;
+      font-size: 20px;
+      font-weight: 700;
+      font-family: 'TWKEverett';
+    }
+
+    .ant-modal-close {
+      top: 24px;
+      right: 24px;
+      width: 24px;
+      height: 24px;
+    }
+
+    .ant-modal-close-x {
+      line-height: 100%;
+    }
+  }
+
+  .ant-input-outlined {
+    border-color: $border-color;
+    border-radius: 10px;
+    font-family: 'Onest';
+    height: 44px;
+    padding: 0px 12px;
+    color: $primary-color;
+    font-weight: 500;
+
+    &:hover {
+      border-color: $blue-color;
+    }
+
+    &:focus-within {
+      box-shadow: none;
+      border-color: $blue-color;
+    }
+
+    > .ant-input {
+      height: 42px;
+    }
+  }
+
+  .ant-input {
+    border-color: $border-color;
+    border-radius: 10px;
+    font-family: 'Onest';
+    height: 44px;
+    padding: 10px 12px;
+    color: $primary-color;
+    font-weight: 500;
+
+    &:hover {
+      border-color: $blue-color;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border-color: $blue-color;
+    }
+
+    &::placeholder {
+      color: rgba(black, 0.2);
+    }
+
+    &.ant-input-disabled {
+      background-color: #EDEDED;
+      border-color: $border-color !important;
+    }
+  }
+
+  .ant-input-password-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .img-crop-modal {
+    .ant-modal-header {
+      margin-bottom: 24px;
+    }
+
+    .img-crop-container {
+      border-radius: 12px;
+    }
+
+    .img-crop-control {
+      margin-block: 24px;
+    }
+    
+    .ant-modal-footer {
+      display: flex;
+      gap: 10px;
+      margin-top: 0;
+
+      button {
+        flex: 1;
+      }
+
+      .ant-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: black;
+        overflow: hidden;
+        position: relative;
+        transition: opacity .3s;
+        user-select: none;
+        border-radius: 100px;
+        gap: 4px;
+        height: 48px;
+        font-size: 16px;
+        font-weight: 700;
+        padding-inline: 20px;
+        border: 0;
+      
+        &:hover {
+          &::before {
+            opacity: 0.1;
+          }
+        }
+      
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-color: black;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+      
+        &.ant-btn-default {
+          background-color: #F3F5F7;
+          color: $primary-color;
+        }
+      
+        &.ant-btn-primary {
+          background-color: $primary-color;
+          color: white;
+        }
+      }
+    }
+
+    .ant-slider-track {
+      background-color: $blue-color !important;
+    }
+
+    .ant-slider-handle {
+      &::after {
+        box-shadow: 0 0 0 2px $blue-color !important;
+      }
+    }
+  }
+}

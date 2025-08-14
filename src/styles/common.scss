@@ -1,0 +1,193 @@
+@import './utils.scss';
+
+.imageMask {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+}
+
+.hideScrollbar {
+  @include hideScrollbar();
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.-translate-1\/2 {
+  transform: translate(-50%, -50%);
+}
+
+.text-hover-underline {
+  position: relative;
+
+  &::after {
+    background-color: currentColor;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+svg,
+path {
+  outline: none;
+}
+
+.breathing-animation {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  animation: breathe 2s ease-in-out infinite;
+}
+
+@keyframes breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.button-gradient {
+  background: radial-gradient(36.8% 79.12% at 50% 50%, rgba(54, 185, 255, 0.2) 0%, rgba(156, 238, 73, 0.2) 66.35%, rgba(109, 255, 206, 0.2) 100%);
+  filter: blur(8.3px);
+
+}
+
+.bg-gradient {
+  background: linear-gradient(to bottom left, #3C81FF 0%, #246BEE 50%, #246BEE 100%);
+}
+
+.bg-gradient-overlay {
+  background: url('../assets//images/referrals/mask-group.png'), linear-gradient(to bottom left, #4b82e8 0%, #246BEE 50%, #246BEE 100%);
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}
+
+.commonButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: black;
+  font-weight: 500;
+  width: fit-content;
+  overflow: hidden;
+  position: relative;
+  transition: opacity .3s;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 100px;
+  gap: 4px;
+  height: 32px;
+  font-size: 14px;
+  padding-inline: 16px;
+
+  &.large {
+    height: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    padding-inline: 20px;
+  }
+
+  &.xl {
+    height: 48px;
+    font-size: 16px;
+    font-weight: 700;
+    padding-inline: 20px;
+  }
+
+  &.small {
+    height: 24px;
+    font-size: 12px;
+  }
+
+  &:not(.disabled, .loading):hover {
+    &::before {
+      opacity: 0.1;
+    }
+  }
+
+  &.full {
+    width: 100%;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &.loading {
+    background-color: #CCCDCE !important;
+    color: white !important;
+  }
+
+  &.sencondary {
+    background-color: #F3F5F7;
+    color: $primary-color;
+  }
+
+  &.white {
+    background-color: white;
+    color: $primary-color;
+  }
+
+  &.primary {
+    background-color: $primary-color;
+    color: white;
+
+    &::before {
+      background-color: white;
+    }
+
+    &.disabled {
+      background-color: #F3F5F7;
+      color: #D4D6D9;
+    }
+  }
+
+  &.warning {
+    color: #C2C2C2;
+    background-color: #EDEDED;
+  }
+
+  &.blue {
+    background-color: $blue-color;
+    color: white;
+  }
+}
