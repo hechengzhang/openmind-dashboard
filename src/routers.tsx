@@ -22,65 +22,65 @@ interface IRouteConfig {
 
 const routes: IRouteConfig[] = [
   {
-    path: '/sign-in',
-    element: <SignIn />,
-    name: 'Sign In',
-  },
-  {
-    path: '/sign-in/sso-callback',
-    element: <SignInSSOCallback />,
-    name: 'Sign In SSO Callback',
-  },
-  {
-    path: '/sign-up',
-    element: <SignUp />,
-    name: 'Sign Up',
-  },
-  {
-    path: '/sign-up/sso-callback',
-    element: <SignUpSSOCallback />,
-    name: 'Sign Up SSO Callback',
-  },
-  {
     path: '/',
-    element: <Dashboard />,
-    name: 'Dashboard',
-  },
-  {
-    path: '/email-verified',
-    element: <EmailVerified />,
-    name: 'Email Verified',
-  },
-  {
-    path: '/forgot-password',
-    element: <ForgotPassword />,
-    name: 'Forgot Password',
-  },
-  {
-    path: '/reset-password',
-    element: <RestPassword />,
-    name: 'Rest Password',
-  },
-  {
-    path: '/network',
-    element: <Network />,
-    name: 'Network',
-  },
-  {
-    path: '/my-Devices',
-    element: <MyDevices />,
-    name: 'MyDevices',
-  },
-  // {
-  //   path: '/referrals',
-  //   element: <Referrals />,
-  //   name: 'Referrals',
-  // },
-  {
-    path: '/profile',
-    element: <Profile />,
-    name: 'Profile',
-  },
+    children: [
+      {
+        path: '/sign-in',
+        element: <SignIn />,
+        name: 'Sign In',
+      },
+      {
+        path: '/sign-in/sso-callback',
+        element: <SignInSSOCallback />,
+        name: 'Sign In SSO Callback',
+      },
+      {
+        path: '/sign-up',
+        element: <SignUp />,
+        name: 'Sign Up',
+      },
+      {
+        path: '/sign-up/sso-callback',
+        element: <SignUpSSOCallback />,
+        name: 'Sign Up SSO Callback',
+      },
+      {
+        path: '/',
+        element: <Dashboard />,
+        name: 'Dashboard',
+      },
+      {
+        path: '/email-verified',
+        element: <EmailVerified />,
+        name: 'Email Verified',
+      },
+      {
+        path: '/forgot-password',
+        element: <ForgotPassword />,
+        name: 'Forgot Password',
+      },
+      {
+        path: '/reset-password',
+        element: <RestPassword />,
+        name: 'Rest Password',
+      },
+      {
+        path: '/network',
+        element: <Network />,
+        name: 'Network',
+      },
+      {
+        path: '/my-Devices',
+        element: <MyDevices />,
+        name: 'MyDevices',
+      },
+      {
+        path: '/profile',
+        element: <Profile />,
+        name: 'Profile',
+      },
+    ]
+  }
 ];
 const renderRoutes = (routes: IRouteConfig[]): React.ReactNode => {
   return routes.map((route) => (

@@ -10,7 +10,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const { inited } = useGlobalContext()
 
   const isLoginPages = useMemo(() => {
-    return ['/sign-in', '/sign-in/sso-callback', '/sign-up', '/sign-up/sso-callback', '/email-verified', '/forgot-password', '/reset-password'].includes(location.pathname);
+    return ['/openmind/sign-in', '/openmind/sign-in/sso-callback', '/openmind/sign-up', '/openmind/sign-up/sso-callback', '/openmind/email-verified', '/openmind/forgot-password', '/openmind/reset-password'].includes(location.pathname);
   }, [location]);
 
   return (

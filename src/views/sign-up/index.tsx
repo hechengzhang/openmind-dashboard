@@ -78,7 +78,7 @@ const SignUp = () => {
 
       const verificationResult = await signUp.prepareEmailAddressVerification({
         strategy: "email_link",
-        redirectUrl: window.location.href + "email-verified",
+        redirectUrl: window.location.origin + '/openmind/email-verified',
       });
 
       console.log("Verification preparation result:", verificationResult);
@@ -89,7 +89,7 @@ const SignUp = () => {
       localStorage.setItem("signUpFullName", fullName); // Store the full name for later use
       localStorage.setItem("clerkSignUpId", signUp.id || "");
       localStorage.setItem("cooldownSeconds", '60');
-      navigate('/email-verified')
+      navigate('/openmind/email-verified')
     } catch (err: unknown) {
       console.log('Sign up error', err);
       const errorObj = err as { errors?: Array<{ message: string, longMessage: string }> };

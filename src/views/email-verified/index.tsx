@@ -57,7 +57,7 @@ const EmailVerified = () => {
 
           if (setActive) {
             await setActive({ session: signUp.createdSessionId });
-            navigate('/')
+            navigate('/openmind/')
           } else {
             window.location.reload();
           }
@@ -89,7 +89,7 @@ const EmailVerified = () => {
       if (signUp && signUp.id === signUpId) {
         await signUp.prepareEmailAddressVerification({
           strategy: "email_link",
-          redirectUrl: window.location.href + 'email-verified',
+          redirectUrl: window.location.origin + '/openmind/email-verified',
         });
 
         message.success("Verification email resent! Please check your inbox.");
@@ -110,7 +110,7 @@ const EmailVerified = () => {
   }
 
   if (!formSubmitted || !storedEmail) {
-    return <Navigate to='/sign-up' replace />;
+    return <Navigate to='/openmind/sign-up' replace />;
   }
 
   return (

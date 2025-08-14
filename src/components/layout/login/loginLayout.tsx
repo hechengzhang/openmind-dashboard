@@ -9,7 +9,7 @@ const LoginLayout = ({ children } : { children: React.ReactNode }) => {
   const { isSignedIn } = useUser();
 
   if (isSignedIn) {
-    return <Navigate to='/' replace />;
+    return <Navigate to='/openmind/' replace />;
   }
   
   return (

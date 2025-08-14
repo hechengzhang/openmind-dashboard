@@ -70,11 +70,11 @@ const PopContent = ({ setVisible }: { setVisible: (visible: boolean) => void }) 
 
   return (
     <div className="flex-col gap-[4px] w-[158px]">
-      <Link to='/profile' onClick={hidePop}>
+      <Link to='/openmind/profile' onClick={hidePop}>
         <PopItem label="Profile" riv={ProfileRiv} />
       </Link>
       <PopItem label="About Us" riv={AboutRiv} onClick={toAboutUs} />
-      <SignOutButton redirectUrl={window.location.href + 'sign-in'}>
+      <SignOutButton redirectUrl={window.location.origin + '/openmind/sign-in'}>
         <PopItem label="Logout" riv={LogoutRiv} />
       </SignOutButton>
 

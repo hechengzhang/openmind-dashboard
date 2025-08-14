@@ -25,7 +25,7 @@ const Forgotpassword = () => {
     .then(() => {
       localStorage.setItem("reset_email", email);
       localStorage.setItem("cooldownSeconds", '60');
-      navigate('/reset-password')
+      navigate('/openmind/reset-password')
     })
     .catch((err) => {
       console.error("error", err.errors[0].longMessage);

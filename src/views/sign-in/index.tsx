@@ -21,7 +21,7 @@ const Login = () => {
   const signInWith = (strategy: OAuthStrategy) => {
     return signIn.authenticateWithRedirect({
       strategy,
-      redirectUrl: window.location.href + "sign-in/sso-callback",
+      redirectUrl: window.location.origin + '/openmind/sign-in/sso-callback',
       redirectUrlComplete: window.location.href,
     });
   };
@@ -39,7 +39,7 @@ const Login = () => {
 
       if (result.status === "complete") {
         await setActive({ session: result.createdSessionId });
-        navigate("/");
+        navigate("/openmind/");
       }
     } catch (err) {
       console.error(err);

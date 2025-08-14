@@ -14,11 +14,11 @@ import { useRef } from "react"
 import ArrowLeftSvg from "@/assets/images/sidebar/arrow-left.svg?react";
 
 const menuItems = [
-  { riv: DashboardRiv, label: 'Dashboard', path: '/' },
-  { riv: NetworkRiv, label: 'Network', path: '/network' },
-  { riv: MyDevicesRiv, label: 'My Devices', path: '/my-devices' },
-  { riv: ReferralsRiv, label: 'Referrals', path: '/referrals', soon: true },
-  { riv: RobotRiv, label: 'Robot', path: '/robot', soon: true },
+  { riv: DashboardRiv, label: 'Dashboard', path: '/openmind/' },
+  { riv: NetworkRiv, label: 'Network', path: '/openmind/network' },
+  { riv: MyDevicesRiv, label: 'My Devices', path: '/openmind/my-devices' },
+  { riv: ReferralsRiv, label: 'Referrals', path: '/openmind/referrals', soon: true },
+  { riv: RobotRiv, label: 'Robot', path: '/openmind/robot', soon: true },
 ];
 
 const RouterList = ({ isCollapsed, setisCollapsed }: LoginedLayoutSidebarProps) => {

@@ -21,7 +21,7 @@ const LoginedLayout = (props: Props) => {
   const dispatch = useDispatch<AppDispatch>();
   
   if (!isSignedIn && signIn) {
-    return <Navigate to='/sign-in' replace />;
+    return <Navigate to='/openmind/sign-in' replace />;
   }
 
   useEffect(() => {
