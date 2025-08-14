@@ -78,7 +78,7 @@ const SignUp = () => {
 
       const verificationResult = await signUp.prepareEmailAddressVerification({
         strategy: "email_link",
-        redirectUrl: window.location.origin + "/email-verified",
+        redirectUrl: window.location.href + "/email-verified",
       });
 
       console.log("Verification preparation result:", verificationResult);
