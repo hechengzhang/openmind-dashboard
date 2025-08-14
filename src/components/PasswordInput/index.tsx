@@ -5,11 +5,12 @@ import LockSvg from "@/assets/images/login/lock.svg?react"
 import classNames from "classnames";
 
 const PasswordInput = (props: InputProps & { prefixIcon?: boolean, error?: boolean }) => {
+  const { prefixIcon, error, ...rest } = props
   return (
     <Input.Password
-      {...props}
-      prefix={props.prefixIcon? <LockSvg /> : null}
-      className={classNames({ 'error': props.error })}
+      {...rest}
+      prefix={prefixIcon? <LockSvg /> : null}
+      className={classNames({ 'error': error })}
       iconRender={(visible) => (
         <div className="w-[24px] h-[24px]">
           {visible ? <ShowSvg /> : <HideSvg />}

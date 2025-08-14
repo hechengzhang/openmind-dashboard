@@ -60,7 +60,7 @@ const Login = () => {
             prefix={<EmailSvg />}
           />
         </LoginFormItem>
-        <LoginFormItem label='Password' slot={<Link to='/forgot-password' className="text-[14px] leading-[20px] text-secondary text-hover-underline">Forgot password?</Link>}>
+        <LoginFormItem label='Password' slot={<Link to='/openmind/forgot-password' className="text-[14px] leading-[20px] text-secondary text-hover-underline">Forgot password?</Link>}>
           <PasswordInput
             placeholder="Enter password"
             value={password}
