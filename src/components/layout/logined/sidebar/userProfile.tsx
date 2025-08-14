@@ -74,7 +74,7 @@ const PopContent = ({ setVisible }: { setVisible: (visible: boolean) => void }) 
         <PopItem label="Profile" riv={ProfileRiv} />
       </Link>
       <PopItem label="About Us" riv={AboutRiv} onClick={toAboutUs} />
-      <SignOutButton redirectUrl={window.location.href + '/sign-in'}>
+      <SignOutButton redirectUrl={window.location.href + 'sign-in'}>
         <PopItem label="Logout" riv={LogoutRiv} />
       </SignOutButton>
 

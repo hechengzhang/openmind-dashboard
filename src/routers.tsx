@@ -84,7 +84,7 @@ const routes: IRouteConfig[] = [
 ];
 const renderRoutes = (routes: IRouteConfig[]): React.ReactNode => {
   return routes.map((route) => (
-    <Route key={route.path} path={`${route.path}`} element={route.element}>
+    <Route key={route.path} path={`/openmind${route.path}`} element={route.element}>
       {route.children && renderRoutes(route.children)}
     </Route>
   ));

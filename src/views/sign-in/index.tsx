@@ -21,7 +21,7 @@ const Login = () => {
   const signInWith = (strategy: OAuthStrategy) => {
     return signIn.authenticateWithRedirect({
       strategy,
-      redirectUrl: window.location.href + "/sign-in/sso-callback",
+      redirectUrl: window.location.href + "sign-in/sso-callback",
       redirectUrlComplete: window.location.href,
     });
   };

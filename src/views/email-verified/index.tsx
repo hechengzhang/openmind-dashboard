@@ -89,7 +89,7 @@ const EmailVerified = () => {
       if (signUp && signUp.id === signUpId) {
         await signUp.prepareEmailAddressVerification({
           strategy: "email_link",
-          redirectUrl: window.location.href + '/email-verified',
+          redirectUrl: window.location.href + 'email-verified',
         });
 
         message.success("Verification email resent! Please check your inbox.");
