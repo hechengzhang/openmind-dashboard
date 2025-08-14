@@ -1,9 +1,6 @@
 import ArrowSvg from "@/assets/images/sidebar/arrow.svg?react";
 import classNames from "classnames";
 import { useMemo, useRef, useState } from "react";
-import ProfileSvg from "@/assets/images/profile/profile.svg?react";
-import QuestionsSvg from "@/assets/images/profile/questions.svg?react";
-import LogoutSvg from "@/assets/images/profile/logout.svg?react";
 import { SignOutButton, useUser } from "@clerk/clerk-react";
 import { LoginedLayoutSidebarProps } from ".";
 import { Popover, Skeleton } from "antd";
@@ -20,7 +17,7 @@ const UserProfile = ({ isCollapsed }: LoginedLayoutSidebarProps) => {
   const [visible, setVisible] = useState(false)
 
   return (
-    <Popover placement="right" trigger="click" content={<PopContent setVisible={setVisible} />} open={visible} onOpenChange={setVisible} destroyOnHidden>
+    <Popover placement="right" trigger="click" content={<PopContent setVisible={setVisible} />} open={visible} onOpenChange={setVisible}>
       <div className="flex items-center gap-[12px] p-[24px] cursor-pointer">
         <div className="w-[40px] h-[40px] shrink-0 rounded-full overflow-hidden">
           <Avatar />
