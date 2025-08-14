@@ -1,12 +1,12 @@
 import EmailSvg from "@/assets/images/login/email.svg?react"
 import { useState } from "react"
-import InputField from "@/components/common/input"
 import OpenMindButton from "@/components/common/Button"
 import { useNavigate } from "react-router-dom"
 import { useSignIn } from "@clerk/clerk-react"
 import HaveAnAccount from "@/components/login/HaveAnAccount"
 import LoginFormItem from "@/components/login/LoginFormItem"
 import LoginFormTips from "@/components/login/LoginFormTips"
+import { Input } from "antd"
 
 const Forgotpassword = () => {
   const [email, setEmail] = useState("")
@@ -40,10 +40,9 @@ const Forgotpassword = () => {
       <div className="text-center text-[14px] font-500 mt-[16px] mb-[24px] text-secondary px-[40px]">Enter your email address, and we will send you a link to resetyour password.</div>
       
       <LoginFormItem label="Email">
-        <InputField
-          type="text"
+        <Input
           placeholder="Enter your Email"
-          icon={EmailSvg}
+          prefix={<EmailSvg/>}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />

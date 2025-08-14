@@ -1,16 +1,15 @@
 
 import GoogleSvg from "@/assets/images/login/google.svg?react"
 import EmailSvg from "@/assets/images/login/email.svg?react"
-import LockSvg from "@/assets/images/login/lock.svg?react"
 import { useState } from "react"
 import OpenMindButton from "@/components/common/Button"
-import InputField from "@/components/common/input"
 import { useSignIn } from "@clerk/clerk-react"
 import { OAuthStrategy } from "@clerk/types";
 import { Link, useNavigate } from 'react-router-dom'
 import LoginFormItem from "@/components/login/LoginFormItem"
-import { message } from "antd"
+import { Input, message } from "antd"
 import NoAnAccount from "@/components/login/NoAnAccount"
+import PasswordInput from "@/components/PasswordInput"
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -54,19 +53,18 @@ const Login = () => {
     <>
       <div className="flex-col gap-[24px] mb-[24px]">
         <LoginFormItem label='Email'>
-          <InputField
+          <Input
             placeholder="Enter email address"
-            icon={EmailSvg}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            prefix={<EmailSvg />}
           />
         </LoginFormItem>
         <LoginFormItem label='Password' slot={<Link to='/forgot-password' className="text-[14px] leading-[20px] text-secondary text-hover-underline">Forgot password?</Link>}>
-          <InputField
-            type="password"
+          <PasswordInput
             placeholder="Enter password"
-            icon={LockSvg}
             value={password}
+            prefixIcon
             onChange={(e) => setPassword(e.target.value)}
           />
         </LoginFormItem>

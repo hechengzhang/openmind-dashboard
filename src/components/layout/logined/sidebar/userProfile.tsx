@@ -1,6 +1,6 @@
 import ArrowSvg from "@/assets/images/sidebar/arrow.svg?react";
 import classNames from "classnames";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import ProfileSvg from "@/assets/images/profile/profile.svg?react";
 import QuestionsSvg from "@/assets/images/profile/questions.svg?react";
 import LogoutSvg from "@/assets/images/profile/logout.svg?react";
@@ -9,7 +9,10 @@ import { LoginedLayoutSidebarProps } from ".";
 import { Popover, Skeleton } from "antd";
 import Avatar from "@/components/Avatar";
 import { Link } from "react-router-dom";
-
+import ProfileRiv from "@/assets/animations/userPop/profile.riv";
+import AboutRiv from "@/assets/animations/userPop/about.riv";
+import LogoutRiv from "@/assets/animations/userPop/logout.riv";
+import OpenMindRive from "@/components/OpenMindRive";
 
 const UserProfile = ({ isCollapsed }: LoginedLayoutSidebarProps) => {
   const { user } = useUser();
@@ -17,7 +20,7 @@ const UserProfile = ({ isCollapsed }: LoginedLayoutSidebarProps) => {
   const [visible, setVisible] = useState(false)
 
   return (
-    <Popover placement="right" trigger="click" content={<PopContent setVisible={setVisible} />} open={visible} onOpenChange={setVisible}>
+    <Popover placement="right" trigger="click" content={<PopContent setVisible={setVisible} />} open={visible} onOpenChange={setVisible} destroyOnHidden>
       <div className="flex items-center gap-[12px] p-[24px] cursor-pointer">
         <div className="w-[40px] h-[40px] shrink-0 rounded-full overflow-hidden">
           <Avatar />
@@ -68,11 +71,11 @@ const PopContent = ({ setVisible }: { setVisible: (visible: boolean) => void }) 
   return (
     <div className="flex-col gap-[4px] w-[158px]">
       <Link to='/profile' onClick={hidePop}>
-        <PopItem label="Profile" icon={<ProfileSvg />} />
+        <PopItem label="Profile" riv={ProfileRiv} />
       </Link>
-      <PopItem label="About Us" icon={<QuestionsSvg />} onClick={toAboutUs} />
+      <PopItem label="About Us" riv={AboutRiv} onClick={toAboutUs} />
       <SignOutButton redirectUrl={'/sign-in'}>
-        <PopItem label="Logout" icon={<LogoutSvg />} />
+        <PopItem label="Logout" riv={LogoutRiv} />
       </SignOutButton>
 
       <div className="flex items-center gap-[8px] p-[8px] text-[#99A0AE] text-[12px] leading-[20px]">
@@ -98,13 +101,22 @@ const PopContent = ({ setVisible }: { setVisible: (visible: boolean) => void }) 
   );
 };
 
-const PopItem = ({ icon, label, onClick } : { icon: JSX.Element, label: string, onClick?: () => void }) => {
+const PopItem = ({ riv, label, onClick } : { riv: any, label: string, onClick?: () => void }) => {
+  const ref = useRef(null)
+
+  const onHover = () => {
+    ref.current?.play()
+  }
+
   return (
     <div
       className="flex gap-[8px] p-[8px] hover:bg-[#F3F5F7] rounded-[8px] duration-300 cursor-pointer"
       onClick={onClick}
+      onMouseEnter={onHover}
     >
-      <div className="w-[20px] h-[20px]">{icon}</div>
+      <div className="w-[20px] h-[20px]">
+        <OpenMindRive ref={ref} src={riv} />
+      </div>
       <div className="text-[14px] font-[500] leading-[20px] text-primary">
         {label}
       </div>

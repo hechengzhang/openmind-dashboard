@@ -1,7 +1,5 @@
-'use client'
-
-import { useState } from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, } from 'recharts'
+import { useEffect, useState } from 'react'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, } from 'recharts'
 import { motion } from 'framer-motion'
 import Scrollbars from 'react-custom-scrollbars-2'
 
@@ -119,11 +117,25 @@ const CustomizedXAxisTick = ({ x, y, payload, index, hoveredIndex, }: Customized
 
 const RewardsBarChart = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+   const [height, setHeight] = useState(286);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1920) { 
+        setHeight(392);
+      } else {
+        setHeight(286);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize(); 
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <div className="px-[32px] py-[24px] pb-[20px] rounded-[20px] bg-white flex-1">
-      <Scrollbars style={{ height: 286}}>
-        <div className="flex-col h-[286px] rounded-[20px] min-w-[700px] pb-[22px]">
+    <div className="px-[32px] py-[24px] pb-[20px] rounded-[20px] bg-white lg:mr-[8px]">
+      <Scrollbars style={{ height}}>
+        <div className="flex-col max-3xl:h-[286px] 3xl:h-[392px] rounded-[20px] min-w-[700px] pb-[22px]">
           <div className="text-[20px] font-[600] leading-[18px] mb-[30px]">Rewards Points</div>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart

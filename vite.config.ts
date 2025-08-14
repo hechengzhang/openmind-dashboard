@@ -6,6 +6,7 @@ import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
   base: '/openmind/',
+  assetsInclude: ['**/*.riv'],
   plugins: [
     svgr()
   ],

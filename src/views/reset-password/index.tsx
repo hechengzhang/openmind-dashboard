@@ -1,16 +1,15 @@
 import OpenMindButton from "@/components/common/Button";
-import InputField from "@/components/common/input"
 import LoginFormItem from "@/components/login/LoginFormItem"
-import { Tooltip } from "antd"
+import { Input, Tooltip } from "antd"
 import { useMemo, useState } from "react"
 import { PasswordsDoNotMatchError } from "../sign-up";
 import CodeSvg from "@/assets/images/login/code.svg?react";
-import LockSvg from "@/assets/images/login/lock.svg?react";
 import BlackInfoCircleSvg from "@/assets/images/login/black-infoCircle.svg?react";
 import { useSignIn } from "@clerk/clerk-react";
 import LoginFormTips from "@/components/login/LoginFormTips";
 import HaveAnAccount from "@/components/login/HaveAnAccount";
 import EmailCooldown from "./EmailCooldown";
+import PasswordInput from "@/components/PasswordInput";
 
 interface FormDataType {
   code: string;
@@ -86,9 +85,9 @@ const RestPassword = () => {
     <>
       <div className="flex-col gap-[24px] mb-[32px]">
         <LoginFormItem label="Code" slot={<EmailCooldown/>}>
-          <InputField
+          <Input
             placeholder="Enter Verification Code"
-            icon={CodeSvg}
+            prefix={<CodeSvg />}
             value={formData.code}
             onChange={(e) => onFormItemChange('code', e.target.value)}
           />
@@ -101,20 +100,19 @@ const RestPassword = () => {
             </Tooltip>
           )}
         >
-          <InputField
+          <PasswordInput
             type="password"
             placeholder="Enter password"
-            icon={LockSvg}
+            prefixIcon
             value={formData.password}
             onChange={(e) => onFormItemChange('password', e.target.value)}
             error={error === PasswordsDoNotMatchError}
           />
         </LoginFormItem>
         <LoginFormItem label="Confirm Password">
-          <InputField
-            type="password"
+          <PasswordInput
             placeholder="Re-enter password"
-            icon={LockSvg}
+            prefixIcon
             value={formData.confirmPassword}
             onChange={(e) => onFormItemChange('confirmPassword', e.target.value)}
             error={error === PasswordsDoNotMatchError}

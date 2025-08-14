@@ -8,6 +8,7 @@ import UserProfile from "./userProfile";
 
 export interface LoginedLayoutSidebarProps {
   isCollapsed: boolean;
+  setisCollapsed?: (isCollapsed: boolean) => void;
 }
 
 const Sidebar = () => {
@@ -20,20 +21,16 @@ const Sidebar = () => {
         isCollapsed ? 'w-[80px]' : 'w-[272px]'
       )}
     >
-      <div
-        className={classNames(
-          "absolute px-[4px] py-[8px] cursor-pointer z-[10] right-0 top-[20px]",
-          { 'translate-x-[25px] rotate-180': isCollapsed }
-        )}
-        onClick={() => setisCollapsed((prev) => !prev)}
-      >
-        <div className="w-[16px] h-[16px]">
-          <ArrowLeftSvg />
+      {!isCollapsed && (
+        <div className="absolute cursor-pointer z-[10] right-[24px] top-[24px]" onClick={() => setisCollapsed(true)}>
+          <div className="w-[24px] h-[24px]">
+            <ArrowLeftSvg />
+          </div>
         </div>
-      </div>
+      )}
       
       <Logo isCollapsed={isCollapsed} />
-      <RouterList isCollapsed={isCollapsed} />
+      <RouterList isCollapsed={isCollapsed} setisCollapsed={setisCollapsed} />
       <Socail isCollapsed={isCollapsed} />
       <UserProfile isCollapsed={isCollapsed} />
     </div>

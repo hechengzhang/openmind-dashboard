@@ -14,7 +14,7 @@ const LoginLayout = ({ children } : { children: React.ReactNode }) => {
   
   return (
     <div className="w-full h-[100dvh] relative">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${BgImage})` }} />
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.02]" style={{ backgroundImage: `url(${BgImage})` }} />
       <div className="w-full h-full relative z-[2]">
         <Scrollbar>
           <LoginPageContainer>

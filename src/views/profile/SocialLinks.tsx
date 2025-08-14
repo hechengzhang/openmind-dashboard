@@ -25,7 +25,7 @@ const SocialLinks = () => {
           )}
           placement="bottom"
         >
-          <div className="w-[20px] h-[20px] opacity-[60%] cursor-pointer hover:opacity-[100%] duration-300"><BlackInfoCircleSvg /></div>
+          <div className="w-[20px] h-[20px] opacity-[60%] hover:opacity-[100%] duration-300"><BlackInfoCircleSvg /></div>
         </Popover>
       </div>
       <div className="flex gap-[24px]">
@@ -52,7 +52,7 @@ const SocailLinkItem = ({ type } : { type: 'twitter' | 'discord' }) => {
   }
 
   return (
-    <div className="flex-1 flex justify-between items-center p-[16px] border-[1px] border-line rounded-[12px] cursor-pointer bg-white" onClick={onLink}>
+    <div className="flex-1 flex justify-between items-center p-[16px] border-[1px] border-line rounded-[12px] cursor-pointer z-[1] bg-white" onClick={onLink}>
       <div className="flex items-center gap-[14px]">
         <div className="w-[32px] h-[32px] flex-row-center bg-[#F3F5F7] rounded-[100%]">
           <div className="w-[16px] h-[16px]">

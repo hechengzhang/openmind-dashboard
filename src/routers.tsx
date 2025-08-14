@@ -1,8 +1,8 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import SignIn from '@/views/sign-in';
 import SignInSSOCallback from '@/views/sign-in/sso-callback';
-import SignUp from '@/views/sign-up';
+import SignUp from '@/views/sign-up'
 import SignUpSSOCallback from '@/views/sign-up/sso-callback';
 import Dashboard from "@/views/dashboard";
 import EmailVerified from "@/views/email-verified";
@@ -10,7 +10,7 @@ import ForgotPassword from "@/views/forgot-password";
 import RestPassword from "@/views/reset-password";
 import Network from '@/views/network';
 import MyDevices from '@/views/my-devices';
-import Referrals from '@/views/referrals';
+// import Referrals from '@/views/referrals';
 import Profile from '@/views/profile';
 
 interface IRouteConfig {
@@ -71,11 +71,11 @@ const routes: IRouteConfig[] = [
     element: <MyDevices />,
     name: 'MyDevices',
   },
-  {
-    path: '/referrals',
-    element: <Referrals />,
-    name: 'Referrals',
-  },
+  // {
+  //   path: '/referrals',
+  //   element: <Referrals />,
+  //   name: 'Referrals',
+  // },
   {
     path: '/profile',
     element: <Profile />,
@@ -91,8 +91,6 @@ const renderRoutes = (routes: IRouteConfig[]): React.ReactNode => {
 };
 
 const AppRoutes = () => {
-  const location = useLocation();
-
   return (
     <Routes location={location} key={location.pathname}>
       {renderRoutes(routes)}

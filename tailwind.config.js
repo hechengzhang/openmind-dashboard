@@ -31,6 +31,7 @@ module.exports = {
         'max-lg': { max: '1023px' }, 
         'max-xl': { max: '1279px' }, 
         'max-2xl': { max: '1439px' },
+        'max-3xl': { max: '1919px' }
       },
     },
   },

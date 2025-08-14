@@ -1,17 +1,17 @@
 import EmailSvg from "@/assets/images/login/email.svg?react";
-import LockSvg from "@/assets/images/login/lock.svg?react";
 import CheckboxSvg from "@/assets/images/login/checkbox.svg?react";
 import TickBoxSvg from "@/assets/images/login/tickBox.svg?react";
 import UserSvg from "@/assets/images/login/user.svg?react";
 import BlackInfoCircleSvg from "@/assets/images/login/black-infoCircle.svg?react";
 import OpenMindButton from "@/components/common/Button";
 import { useState, useMemo } from "react";
-import InputField from "@/components/common/input";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LoginFormItem from "@/components/login/LoginFormItem";
-import { message, Tooltip } from "antd";
+import { Input, Tooltip } from "antd";
 import { useSignUp } from "@clerk/clerk-react";
 import HaveAnAccount from "@/components/login/HaveAnAccount";
+import PasswordInput from "@/components/PasswordInput";
+import LoginFormTips from "@/components/login/LoginFormTips";
 
 interface FormDataType {
   email: string;
@@ -48,6 +48,7 @@ const SignUp = () => {
 
   const handleRegister = async() => {
     setLoading(true)
+    setError('')
     const { email, fullName, password, confirmPassword } = formData
 
     if (password !== confirmPassword) {
@@ -92,7 +93,7 @@ const SignUp = () => {
     } catch (err: unknown) {
       console.log('Sign up error', err);
       const errorObj = err as { errors?: Array<{ message: string, longMessage: string }> };
-      message.error(errorObj.errors?.[0]?.longMessage || "An error occurred during sign up");
+      setError(errorObj.errors?.[0]?.longMessage || "An error occurred during sign up");
     } finally {
       setLoading(false);
     }
@@ -102,17 +103,17 @@ const SignUp = () => {
     <>
       <div className="flex-col gap-[24px]">
         <LoginFormItem label="Email">
-          <InputField
+          <Input
             placeholder="Enter email address"
-            icon={EmailSvg}
+            prefix={<EmailSvg />}
             value={formData.email}
             onChange={(e) => onFormItemChange('email', e.target.value)}
           />
         </LoginFormItem>
         <LoginFormItem label="Full Name">
-          <InputField
+          <Input
             placeholder="Enter Your Name"
-            icon={UserSvg}
+            prefix={<UserSvg />}
             value={formData.fullName}
             onChange={(e) => onFormItemChange('fullName', e.target.value)}
           />
@@ -125,27 +126,22 @@ const SignUp = () => {
             </Tooltip>
           )}
         >
-          <InputField
-            type="password"
+          <PasswordInput
             placeholder="Enter password"
-            icon={LockSvg}
+            prefixIcon
             value={formData.password}
             onChange={(e) => onFormItemChange('password', e.target.value)}
             error={error === PasswordsDoNotMatchError}
           />
         </LoginFormItem>
         <LoginFormItem label="Confirm Password">
-          <InputField
-            type="password"
+          <PasswordInput
             placeholder="Re-enter password"
-            icon={LockSvg}
+            prefixIcon
             value={formData.confirmPassword}
             onChange={(e) => onFormItemChange('confirmPassword', e.target.value)}
             error={error === PasswordsDoNotMatchError}
           />
-          {error && (
-            <div className="text-[14px] text-error">*{PasswordsDoNotMatchError}</div>
-          )}
         </LoginFormItem>
       </div>
 
@@ -157,6 +153,10 @@ const SignUp = () => {
           I Agree to the term condition & Privacy Policy
         </div>
       </div>
+
+      {error && (
+        <LoginFormTips text={error} className="mb-[24px]" />
+      )}
 
       <OpenMindButton disabled={!allFilled} size="xl" block loading={loading} onClick={handleRegister}>Register</OpenMindButton>
       

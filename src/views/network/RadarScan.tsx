@@ -4,7 +4,7 @@ import MarkerImage from "@/assets/images/network/marker.png"
 
 export default function RadarScan() {
   return (
-    <div className="relative w-[120px] h-[120px] z-[2]">
+    <div className="absolute top-1/2 left-1/2 -translate-1/2 w-[120px] h-[120px] z-[2]">
       <motion.div
         animate={{ rotate: -360 }}
         transition={{ repeat: Infinity, ease: "linear", duration: 2 }}

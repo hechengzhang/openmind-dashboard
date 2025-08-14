@@ -1,20 +1,19 @@
-import PhoneImage from "@/assets/images/my-devices/phone.png"
 import OnSvg from "@/assets/images/my-devices/on.svg?react"
-import { OpsBars } from "../my-devices/FabricNodeTable"
+import HumanoidImage from "@/assets/images/my-devices/humanoid.png"
 
 const NearbyMachines = () => {
   return (
-    <div className="absolute top-[40px] left-[24px] right-[24px] border border-line xl:p-[32px] max-xl:py-[16px] max-xl:px-[32px] rounded-[20px] bg-white/60 blur-64 z-[10]">
+    <div className="absolute top-[40px] left-[24px] right-[24px] border border-line p-[32px] rounded-[20px] bg-white/60 backdrop-blur-[64px] z-[10]">
       <div className="xl:flex justify-between max-xl:flex-col">
         <div>
-          <div className="font-primary text-[24px] font-[700] text-primary mb-[8px] whitespace-nowrap">Find machines near you</div>
+          <div className="font-primary text-[24px] font-[700] text-primary mb-[8px] whitespace-nowrap leading-[32px]">Find machines near you</div>
           <div className="text-[14px] font-[500] leading-[18px] text-[#6C6C6C]">Allow access of laptop’s bluetooth and location</div>
         </div>
-        <div className="flex max-xl:mt-[10px] max-xl:justify-between">
+        <div className="flex max-xl:mt-[10px] justify-between flex-1 xl:ml-[40px]">
           <div className="flex items-center gap-[12px] xl:px-[24px] pr-[16px]">
-            <div className="w-[40px] h-[40px]" ><img src={PhoneImage} alt="" /></div>
+            <div className="w-[40px] h-[40px]" ><img src={HumanoidImage} alt="" /></div>
             <div>
-              <div className="text-[14px] font-[500] leading-[20px] text-primary">Catalog</div>
+              <div className="text-[14px] font-[500] leading-[20px] text-primary">humanoid</div>
               <div className="text-[14px] leading-[20px] text-[#475467] whitespace-nowrap">ID: 15331318</div>
             </div>
           </div>
@@ -26,19 +25,12 @@ const NearbyMachines = () => {
             </div>
           </div>
           <div className="flex-col gap-[4px] px-[24px] py-[16px]">
-            <div className="text-[12px] font-[500] text-secondary leading-[16px] whitespace-nowrap">Unclaimed Points</div>
-            <div className="text-[14px] leading-[20px] ">15274609</div>
+            <div className="text-[12px] font-[500] text-secondary leading-[16px]">Duration of running</div>
+            <div className="text-[14px] leading-[20px] ">1 day</div>
           </div>
           <div className="flex-col gap-[4px] px-[24px] py-[16px]">
-            <div className="text-[12px] font-[500] text-secondary leading-[16px]">Ops/s</div>
-            <div className="flex items-center gap-[4px]">
-              <OpsBars count={2} />
-              <div className="text-[14px] leading-[20px] ">0.057778</div>
-            </div>
-          </div>
-          <div className="flex-col gap-[4px] px-[24px] py-[16px]">
-            <div className="text-[12px] font-[500] text-secondary leading-[16px]">Device</div>
-            <div className="text-[14px] leading-[20px] ">WEB</div>
+            <div className="text-[12px] font-[500] text-secondary leading-[16px]">Credits Used</div>
+            <div className="text-[14px] leading-[20px] ">98</div>
           </div>
         </div>
       </div>

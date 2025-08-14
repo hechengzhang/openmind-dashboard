@@ -5,8 +5,8 @@ import { Navigate } from "react-router-dom";
 import Sidebar from "./sidebar";
 import useAxios from "@/hooks/useAxios";
 import { setUserDetails } from "@/redux/userDetail/reducer";
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '@/redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, IRootState } from '@/redux/store';
 
 interface Props {
   children: ReactNode
@@ -17,6 +17,7 @@ const LoginedLayout = (props: Props) => {
   const { signIn } = useSignIn()
   const { isSignedIn, user } = useUser();
   const { axiosPost } = useAxios()
+  const { userInfo } = useSelector((state: IRootState) => state.userDetailsReducer);
   const dispatch = useDispatch<AppDispatch>();
   
   if (!isSignedIn && signIn) {
@@ -30,10 +31,10 @@ const LoginedLayout = (props: Props) => {
   }, [isSignedIn])
 
   useEffect(() => {
-    if (user) {
+    if (user && !userInfo.name) {
       setAvatar()
     }
-  }, [user])
+  }, [user, userInfo])
 
   const setAvatar = async() => {
     let avatar = user.imageUrl

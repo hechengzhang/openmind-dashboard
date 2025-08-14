@@ -7,51 +7,39 @@ import OtherRobotsImage from "@/assets/images/my-devices/otherRobots.png"
 
 export const devicesArray = [
   {
-    user: { image: SmartDevicesImage, name: 'smart devices', id: 15331319 },
+    device: { image: SmartDevicesImage, name: 'smart devices', id: 15331319 },
     status: 'ON',
-    unclaimedPoints: 15274609,
-    Ops: { light: 4, number: 0.057778 },
-    device: 'CLI',
-    points: 98.23
+    DurationOfRunning: 1,
+    points: 98
   },
   {
-    user: { image: LaptopImage, name: 'laptop', id: 15331320 },
+    device: { image: LaptopImage, name: 'laptop', id: 15331320 },
     status: 'OFF',
-    unclaimedPoints: 0,
-    Ops: { light: 0, number: 0 },
-    device: 'CLI',
-    points: 176.54
+    DurationOfRunning: 0,
+    points: 176
   },
   {
-    user: { image: QuadrupedDogImage, name: 'quadruped dog', id: 15331321 },
+    device: { image: QuadrupedDogImage, name: 'quadruped dog', id: 15331321 },
     status: 'OFF',
-    unclaimedPoints: 0,
-    Ops: { light: 0, number: 0 },
-    device: 'CLI',
-    points: 321.75
+    DurationOfRunning: 0,
+    points: 321
   },
   {
-    user: { image: CarsImage, name: 'cars', id: 15331322 },
+    device: { image: CarsImage, name: 'cars', id: 15331322 },
     status: 'OFF',
-    unclaimedPoints: 0,
-    Ops: { light: 0, number: 0 },
-    device: 'CLI',
-    points: 215.65
+    DurationOfRunning: 0,
+    points: 215
   },
   {
-    user: { image: HumanoidImage, name: 'humanoid', id: 15331323 },
+    device: { image: HumanoidImage, name: 'humanoid', id: 15331323 },
     status: 'OFF',
-    unclaimedPoints: 0,
-    Ops: { light: 0, number: 0 },
-    device: 'CLI',
-    points: 442.12
+    DurationOfRunning: 0,
+    points: 44
   },
   {
-    user: { image: OtherRobotsImage, name: 'other robots', id: 15331324 },
+    device: { image: OtherRobotsImage, name: 'other robots', id: 15331324 },
     status: 'OFF',
-    unclaimedPoints: 0,
-    Ops: { light: 0, number: 0 },
-    device: 'CLI',
-    points: 0
+    DurationOfRunning: 0,
+    points: 122
   },
 ]

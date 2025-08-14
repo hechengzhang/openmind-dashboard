@@ -1,10 +1,11 @@
 import OpenMindButton from "@/components/common/Button"
-import EmailSendingSvg from "@/assets/images/login/emailSending.svg?react"
+import EmailSendingRiv from "@/assets/animations/login/sent-email.riv"
 import { useCallback, useEffect, useState } from "react"
 import { Navigate, useNavigate } from "react-router-dom"
 import { message } from "antd"
 import { useSignIn, useSignUp } from "@clerk/clerk-react"
 import HaveAnAccount from "@/components/login/HaveAnAccount"
+import OpenMindRive from "@/components/OpenMindRive"
 
 const EmailVerified = () => {
   const { signUp } = useSignUp();
@@ -116,7 +117,7 @@ const EmailVerified = () => {
     <>
       <div className="flex-row-center mb-[28px]">
         <div className="w-[64px] h-[64px]">
-          <EmailSendingSvg />
+          <OpenMindRive src={EmailSendingRiv} autoplay />
         </div>
       </div>
       <div className="mb-[50px] flex-col-center">

@@ -1,12 +1,11 @@
-import BgCoinsImage from "@/assets/images/dashboard/bg-coins.png"
 import WhiteSurgeSvg from "@/assets/images/dashboard/white-surge.svg?react"
 import GreenUpSvg from "@/assets/images/dashboard/green-up.svg?react"
 import RedDownSvg from "@/assets/images/dashboard/red-down.svg?react"
-import PointCard from "@/components/common/PointCard"
+import PointCard from "@/views/dashboard/PointCard"
 
 const PointCards = () => {
   return (
-    <div className="flex gap-[24px]">
+    <div className="grid grid-cols-[1fr_1fr_1fr] gap-[24px]">
       <PointCard
         title="Total Points"
         value={22505}
@@ -14,8 +13,7 @@ const PointCards = () => {
         changeColor="#fff"
         changeIcon={<WhiteSurgeSvg />}
         subText="from last month"
-        bgGradient
-        extraImage={BgCoinsImage}
+        isPrimary
       />
       <PointCard
         title="Season 1 Points"

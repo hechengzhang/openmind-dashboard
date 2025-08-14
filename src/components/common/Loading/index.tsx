@@ -1,5 +1,3 @@
-'use client';
-
 import Styles from './index.module.scss'
 
 const Loading = () => {

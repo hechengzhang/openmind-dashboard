@@ -1,7 +1,8 @@
 import OpenMindButton from "@/components/common/Button";
-import Modal, { ModalProps } from "@/components/common/Modal"
+import Modal from "@/components/common/Modal"
 import LoginFormTips from "@/components/login/LoginFormTips";
 import PasswordInput from "@/components/PasswordInput";
+import { ModalProps } from "@/types/modal";
 import { useUser } from "@clerk/clerk-react";
 import { message } from "antd";
 import { useEffect, useMemo, useState } from "react";
@@ -10,6 +11,7 @@ const ChangePasswordPop = (props: ModalProps) => {
   const { visible, setVisible } = props
   const { user } = useUser()
   const [error, setError] = useState('');
+  const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -18,6 +20,8 @@ const ChangePasswordPop = (props: ModalProps) => {
     if (!visible) {
       setNewPassword('')
       setConfirmPassword('')
+      setCurrentPassword('')
+      setError('')
     }
   }, [visible])
 
@@ -29,12 +33,17 @@ const ChangePasswordPop = (props: ModalProps) => {
     setLoading(true)
     setError('')
     try {
+      if (newPassword === currentPassword) {
+        setError('New password cannot be the same as the current password')
+        return
+      }
       if (newPassword !== confirmPassword) {
         setError('Passwords do not match')
         return
       }
       await user.updatePassword({
-        newPassword
+        newPassword,
+        currentPassword
       })
 
       message.success('Password changed successfully')
@@ -56,11 +65,20 @@ const ChangePasswordPop = (props: ModalProps) => {
     <Modal visible={visible} setVisible={setVisible} title='Change Password' width={440}>
       <div className="flex-col gap-[12px] pt-[12px]">
         <div>
+          <div className="text-[14px] font-[500] leading-[150%] text-primary mb-[8px]">Current Password</div>
+          <PasswordInput
+            value={currentPassword}
+            placeholder="Enter Current Password"
+            onChange={(e) => setCurrentPassword(e.target.value)}
+          />
+        </div>
+        <div>
           <div className="text-[14px] font-[500] leading-[150%] text-primary mb-[8px]">New Password</div>
           <PasswordInput
             value={newPassword}
             placeholder="Enter New Password"
             onChange={(e) => setNewPassword(e.target.value)}
+            error={error === 'Passwords do not match'}
           />
         </div>
         <div>
@@ -69,6 +87,7 @@ const ChangePasswordPop = (props: ModalProps) => {
             value={confirmPassword}
             placeholder="Enter New Password"
             onChange={(e) => setConfirmPassword(e.target.value)}
+            error={error === 'Passwords do not match'}
           />
         </div>
       </div>

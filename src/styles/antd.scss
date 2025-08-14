@@ -45,6 +45,7 @@ body {
     padding: 0px 12px;
     color: $primary-color;
     font-weight: 500;
+    align-items: center;
 
     &:hover {
       border-color: $blue-color;
@@ -57,6 +58,10 @@ body {
 
     > .ant-input {
       height: 42px;
+    }
+
+    &.error {
+      border-color: $error-color !important;
     }
   }
 
@@ -100,6 +105,8 @@ body {
     }
 
     .img-crop-container {
+      width: 392px;
+      height: 392px;
       border-radius: 12px;
     }
 
@@ -169,6 +176,14 @@ body {
       &::after {
         box-shadow: 0 0 0 2px $blue-color !important;
       }
+    }
+  }
+
+  .ant-input-affix-wrapper {
+    .ant-input-prefix {
+      width: 24px;
+      height: 24px;
+      margin-inline-end: 8px;
     }
   }
 }

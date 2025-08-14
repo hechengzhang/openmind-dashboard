@@ -1,5 +1,3 @@
-'use client'
-
 import classNames from "classnames";
 import { ReactNode, useMemo } from "react"
 import Loading from "../Loading";
@@ -13,10 +11,11 @@ interface Props {
   block?: boolean
   className?: string;
   disabled?: boolean
+  onMouseEnter?: () => void
 }
 
 const OpenMindButton = (props: Props) => {
-  const { children, onClick, size = 'default', type = 'primary', loading, block, className, disabled } = props
+  const { children, onClick, size = 'default', type = 'primary', loading, block, className, disabled, onMouseEnter } = props
 
   const btnClass = useMemo(() => {
     return [size, type, loading && 'loading', block && 'full', className, disabled && 'disabled'].filter(Boolean).join(' ')
@@ -28,7 +27,7 @@ const OpenMindButton = (props: Props) => {
   }
 
   return (
-    <div className={classNames("commonButton font-primary", btnClass)} onClick={handleClick}>
+    <div className={classNames("commonButton font-primary", btnClass)} onClick={handleClick} onMouseEnter={onMouseEnter}>
       {loading && (
         <Loading />
       )}

@@ -1,15 +1,10 @@
 import { ReactNode } from "react";
 import CloseSvg from '@/assets/images/common/close.svg?react'
 import { Modal } from "antd";
-
-export interface ModalProps {
-  visible: boolean;
-  setVisible: (v: boolean) => void;
-}
+import { ModalProps } from "@/types/modal";
 
 interface ModalFullProps extends ModalProps {
   children: ReactNode;
-  width?: number;
   title?: string | ReactNode;
 }
 
