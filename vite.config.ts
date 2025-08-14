@@ -5,7 +5,7 @@ import tailwindcss from 'tailwindcss';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-  base: '/',
+  base: '/openmind/',
   plugins: [
     svgr()
   ],
