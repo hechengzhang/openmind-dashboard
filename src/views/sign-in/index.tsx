@@ -22,7 +22,7 @@ const Login = () => {
     return signIn.authenticateWithRedirect({
       strategy,
       redirectUrl: window.location.origin + '/openmind/sign-in/sso-callback',
-      redirectUrlComplete: window.location.href,
+      redirectUrlComplete: window.location.href + '/openmind/',
     });
   };
 
