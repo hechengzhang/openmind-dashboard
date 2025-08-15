@@ -40,8 +40,10 @@ const LoginedLayout = (props: Props) => {
     let avatar = user.imageUrl
     try {
       const uri = `https://assets.openmind.org/app/user-logos/${user.id}.png`;
-      await fetch(uri)
-      avatar = uri
+      const res = await fetch(uri)
+      if (res.status === 200) {
+        avatar = uri
+      }
     } finally {
       dispatch(setUserDetails({
         avatar,
